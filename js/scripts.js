@@ -71,6 +71,10 @@ const randomizeImgs = () => {
         i++
     }
 
+    randomIndexArr.forEach(index => {
+        displayImgs.push(imgs[index])
+    })
+
     console.log(randomIndexArr, " :randomIndexArr")
     console.log(displayImgs, " :displayImgs")
 }
