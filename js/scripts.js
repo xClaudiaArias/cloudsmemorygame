@@ -13,32 +13,53 @@ let level = 0;
 let isGame = true;
 
 // this is how many images will be displayed per level
-let nums_of_imgs = 0;
+let nums_of_imgs = 4;
 
 
 // functions 
 const start_game = () => {
-    nums_of_imgs = 4;
-
 
 };
 
 const updateLevel = () => {
-    return level += 1;
+    level += 1;
+    console.log("level: ",level)
+    return level
 };
 
 const updateScore = () => {
-    return score += 1;
+    score += 1;
+    console.log("score: ",score)
+    return score;
 };
 
 const generateImgs = () => {
-    if (isGame){
-        if (level === 1) {
-            
+
+
+        // choosing random images 
+        for (let i = 0; i < nums_of_imgs; i++){
+            let random_num = Math.floor(Math.random() * nums_of_imgs)
+
+            console.log(allImgs[random_num])
+            if (!imgs.includes(allImgs[random_num])){
+                imgs.push(allImgs[random_num])
+            } else {
+                // adds one more loop to get the four images needed.
+                nums_of_imgs += 1
+            }
         }
-    }
+
+    // if (isGame){
+    //     if (level === 1) {
+    //     }
+    // }
+
+    // imgs array 
+    console.log(imgs)
 
 };
+
+generateImgs()
 
 const winnerModal = () => {
 
