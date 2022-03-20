@@ -2,12 +2,12 @@ let gameContainer = $("#game-container");
 const startGameBtn = $("#start-game");
 const playAgain = $("#play-again-btn");
 
-let allImgs = ["1.jpeg","2.jpeg","3.jpeg","4.jpeg","5.jpeg","6.jpeg","7.jpeg","8.jpeg"];
+let allImgs = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg"];
 // images per level 
 let imgs = [];
-let displayImgs = [];
+let randomizeImgsArray = [];
 
-console.log(imgs, ' images BEFORE')
+console.log(imgs, ' imgs BEFORE')
 
 let score = 0;
 let level = 0;
@@ -49,7 +49,7 @@ const generateImgs = () => {
         }
     }
 
-    // console.log(imgs, " :imgs")
+    console.log(imgs, " :imgs")
 };
 
 generateImgs()
@@ -72,14 +72,43 @@ const randomizeImgs = () => {
     }
 
     randomIndexArr.forEach(index => {
-        displayImgs.push(imgs[index])
+        randomizeImgsArray.push(imgs[index])
     })
 
-    console.log(randomIndexArr, " :randomIndexArr")
-    console.log(displayImgs, " :displayImgs")
+    console.log(randomizeImgsArray, " :randomizeImgsArray")
 }
 
 randomizeImgs()
+
+const displayImgs = () => {
+    // todo:
+
+    for (let i = 0; i < randomizeImgsArray.length; i++){
+        // parent div 
+        let parent_div = document.createElement("div")
+        parent_div.classList.add("card-" + i)
+        // card cover 
+        let cover = document.createElement("div")
+        cover.classList.add("cover")
+        cover.classList.add("img-" + i)
+
+        let img_card = document.createElement("img")
+        img_card.setAttribute("src", `./images/${randomizeImgsArray[i]}`)
+        img_card.classList.add("img_card")
+        img_card.classList.add("img-" + i)
+
+        console.log(img_card, " :::img_card")
+
+        // append to parent 
+        parent_div.appendChild(cover)
+        parent_div.appendChild(img_card)
+        // append parent to container 
+        gameContainer.append(parent_div);
+    }
+}
+
+displayImgs()
+
 
 const winnerModal = () => {
 
