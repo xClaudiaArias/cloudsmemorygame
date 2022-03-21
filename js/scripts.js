@@ -119,20 +119,32 @@ let matched = [];
 
 console.log(covers, " :covers")
 
-const compareImgs = (e) => {
+const matchImgs = (e) => {
     let cover = e.target
 
-    if (matched.length <= 2){
+    if (matched.length < 2){
         matched.push($(cover).attr('class').split(' ')[1])
     }
 
-    console.log(matched, " :matched")
+    compareImgs()
 }
 
-covers.on("click", compareImgs)
+covers.on("click", matchImgs)
 
+const compareImgs = () => {
+    console.log(matched, " :matched inside")
+    if (matched[0] === matched[1]){
+        updateScore()
+        matched = [];
+    } 
 
+    // fixme:
+    // so basically, if the pics dont match they stay in the array 
+    // so i cant choose other 
+    // it should empty the array so the player has anothe chance to choose 
 
+    console.log("new score: ", score)
+}
 
 const winnerModal = () => {
 
