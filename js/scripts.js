@@ -136,12 +136,11 @@ const compareImgs = () => {
     if (matched[0] === matched[1]){
         updateScore()
         matched = [];
-    } 
-
-    // fixme:
-    // so basically, if the pics dont match they stay in the array 
-    // so i cant choose other 
-    // it should empty the array so the player has anothe chance to choose 
+    } else {
+        if (matched.length === 2) {
+            matched = []
+        }
+    }
 
     console.log("new score: ", score)
 }
