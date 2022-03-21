@@ -19,13 +19,17 @@
     align-items: center;
 }
 
+.card {
+    border: 1px blue solid;
+}
+
 .cover {
     background-color: white;
     background-image: url("/images/cover.png");
     background-repeat: no-repeat;
     background-size: cover;
-    position: absolute;
-    z-index: 1;
+    /* position: absolute;
+    z-index: 1; */
 }
 
 .cover, .img_card {
@@ -34,4 +38,7 @@
     border-radius: 50%;
     object-fit: cover;
 }
+
+
+
 

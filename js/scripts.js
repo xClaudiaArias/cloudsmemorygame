@@ -7,7 +7,7 @@ let allImgs = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg"];
 let imgs = [];
 let randomizeImgsArray = [];
 
-console.log(imgs, ' imgs BEFORE')
+// console.log(imgs, ' imgs BEFORE')
 
 let score = 0;
 let level = 0;
@@ -49,7 +49,7 @@ const generateImgs = () => {
         }
     }
 
-    console.log(imgs, " :imgs")
+    // console.log(imgs, " :imgs")
 };
 
 generateImgs()
@@ -75,7 +75,7 @@ const randomizeImgs = () => {
         randomizeImgsArray.push(imgs[index])
     })
 
-    console.log(randomizeImgsArray, " :randomizeImgsArray")
+    // console.log(randomizeImgsArray, " :randomizeImgsArray")
 }
 
 randomizeImgs()
@@ -85,34 +85,63 @@ const displayImgs = () => {
 
     for (let i = 0; i < randomizeImgsArray.length; i++){
         // parent div 
-        let parent_div = document.createElement("div")
-        parent_div.classList.add("card-" + i)
+        let card = document.createElement("div")
+        card.classList.add("card")
+        card.classList.add("card-" + i)
         // card cover 
         let cover = document.createElement("div")
         cover.classList.add("cover")
-        cover.classList.add("img-" + i)
+        cover.classList.add(randomizeImgsArray[i])
 
         let img_card = document.createElement("img")
         img_card.setAttribute("src", `./images/${randomizeImgsArray[i]}`)
         img_card.classList.add("img_card")
-        img_card.classList.add("img-" + i)
+        img_card.classList.add(randomizeImgsArray[i])
 
-        console.log(img_card, " :::img_card")
+        // console.log(img_card, " :::img_card")
 
         // append to parent 
-        parent_div.appendChild(cover)
-        parent_div.appendChild(img_card)
+        card.appendChild(cover)
+        card.appendChild(img_card)
         // append parent to container 
-        gameContainer.append(parent_div);
+        gameContainer.append(card);
     }
 }
 
 displayImgs()
+
+let covers = $(".cover")
+let matched = [];
+    
+    // note: REFERENCE: DONT DELETE 
+    // gets the second class that matches)
+    // console.log(covers.attr('class').split(' ')[1])
+
+console.log(covers, " :covers")
+
+const compareImgs = (e) => {
+    let cover = e.target
+
+    if (matched.length <= 2){
+        matched.push($(cover).attr('class').split(' ')[1])
+    }
+
+    console.log(matched, " :matched")
+}
+
+covers.on("click", compareImgs)
+
+
 
 
 const winnerModal = () => {
 
 }
 
+
+
+
+// gets the second class that matches)
+// console.log(covers.attr('class').split(' ')[1])
 
 
