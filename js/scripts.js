@@ -23,8 +23,10 @@ const start_game = () => {
 };
 
 const updateLevel = () => {
-    level += 1;
-    // console.log("level: ",level)
+    if (score === 4){
+        level = 1;
+    } 
+
     return level
 };
 
@@ -96,9 +98,7 @@ const displayImgs = () => {
         let img_card = document.createElement("img")
         img_card.setAttribute("src", `./images/${randomizeImgsArray[i]}`)
         img_card.classList.add("img_card")
-        img_card.classList.add(randomizeImgsArray[i])
 
-        // console.log(img_card, " :::img_card")
 
         // append to parent 
         card.appendChild(cover)
@@ -112,47 +112,61 @@ displayImgs()
 
 let covers = $(".cover")
 let matched = [];
-    
-    // note: REFERENCE: DONT DELETE 
-    // gets the second class that matches)
-    // console.log(covers.attr('class').split(' ')[1])
+let correctAnswers = [];
 
-console.log(covers, " :covers")
 
 const matchImgs = (e) => {
     let cover = e.target
 
     if (matched.length < 2){
         matched.push($(cover).attr('class').split(' ')[1])
+        $(cover).hide()
+        correctAnswers.push(cover)
     }
 
-    compareImgs()
+    compareImgs(e)
+
+    console.log(matched, correctAnswers, " :matched, correctedAnswers")
 }
 
 covers.on("click", matchImgs)
 
-const compareImgs = () => {
-    console.log(matched, " :matched inside")
+const compareImgs = (e) => {
+    let cover = e.target
+
+    console.log(correctAnswers, " correct answers")
+
     if (matched[0] === matched[1]){
         updateScore()
+        updateLevel()
         matched = [];
+        correctAnswers = [];
     } else {
         if (matched.length === 2) {
-            matched = []
+            matched = [];
+            flipBack()
         }
     }
 
-    console.log("new score: ", score)
+    console.log(score, " :score")
+    console.log(level, " :level")
 }
+
+const flipBack = () => {
+    correctAnswers.forEach(a => {
+        let wait = setInterval(function(){
+            $(a).show()
+            clearInterval(wait)
+        }, 2000)
+    })
+}
+
+
+
 
 const winnerModal = () => {
 
 }
 
-
-
-
-// gets the second class that matches)
-// console.log(covers.attr('class').split(' ')[1])
 
 
