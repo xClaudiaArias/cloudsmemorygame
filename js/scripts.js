@@ -45,7 +45,7 @@ const game = () => {
         for (let i = 0; i < nums_of_imgs; i++){
             let random_num = Math.floor(Math.random() * nums_of_imgs)
 
-            if (!imgs.includes(allImgs[random_num])){
+            if (!imgs.includes(allImgs[random_num]) && allImgs[random_num] !== undefined){
                 imgs.push(allImgs[random_num])
                 imgs.push(allImgs[random_num])
             } else {
@@ -147,7 +147,7 @@ const game = () => {
             let wait = setInterval(function(){
                 $(a).show()
                 clearInterval(wait)
-            }, 2000)
+            }, 1000)
         })
     }
 
@@ -156,6 +156,11 @@ const game = () => {
 }
 
 game()
+
+
+
+
+// LEVEL UP 
 
 let level2 = setInterval(() => {
     if (level === 2){
