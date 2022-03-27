@@ -197,12 +197,11 @@ let gameOver = setInterval(() => {
     }
 }, 1000);
 
-// playAgainBtn.on('click', game)
 
-const playAgain = () => {
+let playAgainCheck = setInterval(function(){
     if (score === 18){
         playAgainModal.show()
+        playAgainBtn.on('click', game)
+        clearInterval(playAgainCheck)
     }
-}
-
-playAgain()
+}, 1000)
