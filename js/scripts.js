@@ -1,6 +1,10 @@
 let gameContainer = $("#game-container");
 const startGameBtn = $("#start-game");
-const playAgain = $("#play-again-btn");
+let playAgainModal = $("#play-again");
+const playAgainBtn = $("#play-again-btn");
+let levelSpan = $("#level-span");
+let scoreSpan = $("#score-span");
+let lev = $("#lev");
 
 let allImgs = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg"];
 
@@ -14,7 +18,11 @@ let isGame = true;
 
 let nums_of_imgs = 4;
 
+gameContainer.hide()
+playAgainModal.hide()
+
 const game = () => {
+    gameContainer.show()
 
     const updateLevel = () => {
     if (score === 4){
@@ -28,14 +36,18 @@ const game = () => {
         imgs = []
         randomizeImgsArray = []
     } else {
-        level = "over"
+        if (score >= 18){
+            levelSpan.hide()
+            lev.hide()
+        }
     }
-
+    levelSpan.text(level)
     return level
     };
 
     const updateScore = () => {
         score += 1;
+        scoreSpan.text(score)
         return score;
     };
 
@@ -155,10 +167,7 @@ const game = () => {
     covers.on("click", matchImgs)
 }
 
-game()
-
-
-
+startGameBtn.on('click', game)
 
 // LEVEL UP 
 
@@ -183,10 +192,17 @@ let level3 = setInterval(() => {
 let gameOver = setInterval(() => {
     if (score === 18){
         gameContainer.html("GAME OVER")
+        gameContainer.hide()
         clearInterval(level3)
     }
 }, 1000);
 
-// const winnerModal = () => {
+// playAgainBtn.on('click', game)
 
-// }
+const playAgain = () => {
+    if (score === 18){
+        playAgainModal.show()
+    }
+}
+
+playAgain()

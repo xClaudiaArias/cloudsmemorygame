@@ -4,10 +4,6 @@
     box-sizing: border-box;
 }
 
-#play-again {
-    display: none;
-}
-
 #game-container {
     margin: 0 auto;
     border: red solid 2px;
