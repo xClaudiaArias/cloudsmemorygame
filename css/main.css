@@ -6,7 +6,6 @@
 
 #game-container {
     margin: 0 auto;
-    border: red solid 2px;
     width: 500px;
     height: 450px;
     display: flex;
