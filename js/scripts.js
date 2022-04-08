@@ -1,3 +1,5 @@
+$(document).ready(function() {
+
 let gameContainer = $("#game-container");
 let startGameBtn = $("#start-game");
 let playAgainModal = $("#play-again");
@@ -13,14 +15,9 @@ let randomizeImgsArray = [];
 
 let score = 0;
 let level = 1;
-let isGame = true;
-
 
 let nums_of_imgs = 4;
-
-$( document ).ready(function() {
-    gameContainer.hide()
-    playAgainModal.hide()
+gameContainer.hide()
     
     const game = () => {
         levelSpan.text(level)
@@ -141,8 +138,7 @@ $( document ).ready(function() {
         }
     
     
-        const compareImgs = (e) => {
-            let cover = e.target
+        const compareImgs = () => {
     
             if (matched[0] === matched[1]){
                 updateScore()
@@ -176,7 +172,6 @@ $( document ).ready(function() {
     // LEVEL UP 
     let level2 = setInterval(() => {
         if (level === 2){
-            console.log("It's level 2")
             gameContainer.empty()
             game()
             clearInterval(level2)
@@ -185,7 +180,6 @@ $( document ).ready(function() {
     
     let level3 = setInterval(() => {
         if (level === 3){
-            console.log("It's level 3")
             gameContainer.empty()
             game()
             clearInterval(level3)
@@ -194,7 +188,6 @@ $( document ).ready(function() {
     
     let gameOver = setInterval(() => {
         if (score === 18){
-            console.log("whats happening?")
             win()
             clearInterval(gameOver)
         }
@@ -202,12 +195,23 @@ $( document ).ready(function() {
     
     
     const win = () => {
-        $("#announce-win").text("YOU WON!")
+        $("#announce-win").html("<div id='congrats'><h2>Congratulations!</h2><p>YOU WON!!!</p></div>")
         playAgainModal.show()
         gameContainer.hide()
-    }
+
+        playAgainBtn.on("click", function(){
+            let wait = setTimeout(function(){
+                location.reload();
+                clearTimeout(wait)
+            }, 500)
+        })
     
-    playAgainBtn.on("click", function(){
-        location.reload();
-    })
+        $("#close-play-again").on('click', function() {
+            let wait = setTimeout(function(){
+                location.reload();
+                clearTimeout(wait)
+            }, 500)
+        })
+    }
+
 });

@@ -26,7 +26,7 @@ body {
     position: relative;
     top: 50px;
     left: 32%;
-    z-index: 2;
+    z-index: 1;
 }
 
 h1 {
@@ -78,8 +78,8 @@ h1 {
     background-image: url("/images/cover.png");
     background-repeat: no-repeat;
     background-size: cover;
-    position: absolute;
-    z-index: 1;
+    /* position: absolute;
+    z-index: 1; */
     border-radius: 50px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16);
 }
@@ -123,6 +123,78 @@ h1 {
 
 #sco {
     color: #ffb2b2;
+}
+
+#play-again {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255,245,216);
+    background-color: rgb(255,245,216, .77);
+    z-index: 2;
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+#modal-content {
+    background-color: white;
+    width: 800px;
+    height: 507px;
+    border-radius: 50px;
+    border: 10px solid #FFB2B2;
+    position: relative;
+    left: 23%;
+    top: 8%;
+    background-image: url(/images/confetti.png);
+    background-size:  contain;
+}
+
+#close-play-again {
+    width: 85px;
+    height: 59px;
+    background: url(/images/close.svg);
+    background-size: 100% 100%;
+    border: none;
+    color: white;
+    font-size: 32px;
+    padding-bottom: 5px;
+    position: relative;
+    left: 660px;
+    top: 20px;
+}
+
+#play-again-btn {
+    width: 300px;
+    height: 139px;
+    background: url(/images/play-again.png);
+    background-size: 100% 100%;
+    border: none;
+    color: white;
+    font-size: 32px;
+    padding-bottom: 5px;
+    position: relative;
+    left: 260px;
+    top: 80px;
+}
+
+#congrats {
+    position: relative;
+    top: 70px;
+    left: 18px;
+    text-align: center;
+}
+
+#congrats h2 {
+    color: #FFB2B2;
+    font-size: 52px;
+}
+
+
+#congrats p {
+    color: #FF8484;
+    font-size: 36px;
 }
 
 
