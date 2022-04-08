@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="500" viewBox="0 0 500 500">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.863" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ff6c88"/>
+      <stop offset="1" stop-color="#ff5858"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff250"/>
+      <stop offset="1" stop-color="#ff7907"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffc7c7"/>
+      <stop offset="1" stop-color="#ff48ab"/>
+    </linearGradient>
+    <clipPath id="clip-cover">
+      <rect width="500" height="500"/>
+    </clipPath>
+  </defs>
+  <g id="cover" clip-path="url(#clip-cover)">
+    <rect width="500" height="500" fill="#fff"/>
+    <ellipse id="Ellipse_1" data-name="Ellipse 1" cx="318.5" cy="304" rx="318.5" ry="304" transform="translate(-89 -196)" opacity="0.727" fill="url(#linear-gradient)"/>
+    <ellipse id="Ellipse_2" data-name="Ellipse 2" cx="495" cy="487.5" rx="495" ry="487.5" transform="translate(-479 108)" opacity="0.473" fill="url(#linear-gradient-2)"/>
+    <ellipse id="Ellipse_3" data-name="Ellipse 3" cx="236.5" cy="219.5" rx="236.5" ry="219.5" transform="translate(264 200)" opacity="0.727" fill="url(#linear-gradient-3)"/>
+    <g id="Rectangle_1" data-name="Rectangle 1" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="500" height="500" stroke="none"/>
+      <rect x="0.5" y="0.5" width="499" height="499" fill="none"/>
+    </g>
+    <g id="Icon_feather-smile" data-name="Icon feather-smile" transform="translate(43.664 43.664)">
+      <path id="Path_1" data-name="Path 1" d="M409.672,206.336c0,112.3-91.037,203.336-203.336,203.336S3,318.636,3,206.336,94.037,3,206.336,3,409.672,94.037,409.672,206.336Z" transform="translate(0 0)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="40"/>
+      <path id="Path_2" data-name="Path 2" d="M12,21S42.5,61.667,93.334,61.667,174.669,21,174.669,21" transform="translate(113.002 226.003)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="40"/>
+      <path id="Path_3" data-name="Path 3" d="M13.5,13.5h.2" transform="translate(131.835 131.835)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="40"/>
+      <path id="Path_4" data-name="Path 4" d="M22.5,13.5h.2" transform="translate(244.837 131.835)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="40"/>
+    </g>
+  </g>
+</svg>

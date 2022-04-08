@@ -25,6 +25,7 @@ $( document ).ready(function() {
     const game = () => {
         levelSpan.text(level)
         gameContainer.show()
+        startGameBtn.hide()
     
         const updateLevel = () => {
         if (score === 4){
